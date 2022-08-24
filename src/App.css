@@ -76,6 +76,8 @@ button {
     fill: #0D0D0D;
     border-radius: 4px;
     box-sizing: border-box;
+
+    font-family: "Karla", sans-serif;
 }
 
 .meme > button {
@@ -89,7 +91,15 @@ button {
 
 
     border-radius: 4px;
-    border: 0px
+    border: 0px;
+    font-family: "Karla", sans-serif;
+}
+
+.meme-img {
+    width: 50%;
+    align-self: center;
+    padding-bottom: 15px;
+    border-radius: 4px;
 }
 
 /* @media only screen and (max-width: 800px) {
