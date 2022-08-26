@@ -1,10 +1,23 @@
 import React, {useState} from "react"
 import memesData from "../memesData";
 
-let url = ""
 export default function Meme() {
 
     const [meme, getMeme] = useState("https://i.imgflip.com/30b1gx.jpg")
+    const [memeText, setMemeText] = useState({
+        topText: "",
+        bottomText: ""
+    })
+
+    function handleText(event) {
+        const {name, value} = event.target
+        setMemeText(prevMeme => {
+            return({
+                ...prevMeme,
+                [name]: value
+            })
+        })
+    }
 
     function handleClick() {
         const memeLength= memesData.data.memes.length
@@ -18,11 +31,25 @@ export default function Meme() {
     return(
         <div className="meme">
             <form className="meme-form">
-                <input placeholder="Top text" type="text" className="meme-top"/>
-                <input placeholder="Bottom text" type="text" className="meme-bottom"/>
+                <input placeholder="Top text" type="text"
+                name="topText"
+                value={memeText.topText}
+                className="meme-top"
+                onChange={handleText}/>
+
+                <input placeholder="Bottom text" type="text" 
+                name="bottomText"
+                value={memeText.bottomText}
+                className="meme-bottom"
+                onChange={handleText}/>
             </form>
+
             <button onClick={handleClick}> Get New Meme Image </button>
-            <img className="meme-img" src={meme}/>
+            <div className="meme-img">
+                <img className="meme-pic" src={meme}/>
+                <h2 className="text-top"> {memeText.topText} </h2>
+                <h2 className="text-bottom"> {memeText.bottomText} </h2>
+            </div>
         </div>
     )
 }

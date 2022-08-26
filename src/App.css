@@ -96,10 +96,32 @@ button {
 }
 
 .meme-img {
+    position: relative;
     width: 50%;
     align-self: center;
     padding-bottom: 15px;
     border-radius: 4px;
+}
+
+.meme-pic {
+    width: 100%;
+    align-self: center;
+}
+
+.text-top, .text-bottom {
+    position: absolute;
+    font-size: 45px;
+    width: 80%;
+    left: 35%;
+    color: rgb(204, 188, 188);
+}
+
+.text-top {
+    top: 0;
+}
+
+.text-bottom {
+    bottom: 0;
 }
 
 /* @media only screen and (max-width: 800px) {
